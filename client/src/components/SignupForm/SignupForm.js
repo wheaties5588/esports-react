@@ -55,6 +55,31 @@ function SignupForm() {
         </Form.Row>
         <Form.Row>
           <Form.Group as={Col} md="10" controlId="validationCustom01">
+            <Form.Label>Username</Form.Label>
+            <Form.Control
+              required
+              type="username"
+              placeholder="Enter username here"
+              required
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row></Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} md="10" controlId="validationCustom02">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              required
+              type="password"
+              placeholder="Enter password here"
+              required
+            />
+            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+          </Form.Group>
+        </Form.Row>
+        <Form.Row>
+          <Form.Group as={Col} md="10" controlId="validationCustom03">
             <Form.Label>Security Question 1</Form.Label>
             <Form.Control
               required
