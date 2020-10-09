@@ -1,16 +1,23 @@
-import React from 'react';
-import './styles/App.css';
-import Login from  "./components/Login/Login"
-import Header from "./components/Header/Header"
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import { StoreProvider } from "./utils/GlobalState";
+
 
 function App() {
   return (
-    <div className="App">
-   
-     <Header/>
-      <Login/>
-    </div>
+    <Router>
+      <div>
+        <StoreProvider>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+          </Switch>
+        </StoreProvider>
+      </div>
+    </Router>
   );
 }
+
 
 export default App;

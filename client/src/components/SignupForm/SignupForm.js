@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import {Form, FormControl, FormCheck, InputGroup, Button, Col } from 'react-bootstrap'
+import API from "../../utils/userAPI"
 
 
 function SignupForm() {
@@ -21,6 +22,22 @@ function SignupForm() {
       }
       console.log(firstName, lastName,email,username,password,secQ1,secQ2);
       setValidated(true);
+      
+      //axios call
+      API.saveUser({
+        firstName: firstName,
+        lasName: lastName,
+        userName: username,
+        email: email,
+        password: password,
+        securtyQuestion1: secQ1,
+        securtyQuestion2: secQ2,
+        date: Date.now
+      })
+        .then(result => {
+          console.log(result);
+        })
+        .catch(err => console.log(err));
     };
   
     return (
