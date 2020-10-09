@@ -1,5 +1,5 @@
 const express = require("express");
-
+const cors = require('cors')
 const mongoose = require("mongoose");
 const routes = require("./routes/api");
 const app = express();
@@ -12,12 +12,20 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.use(cors());
 // Add routes, both API and view
 app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/esports"
+).then(() => {
+  console.log('Database connected sucessfully !')
+},
+  error => {
+    console.log('Database could not be connected : ' + error)
+  }
 );
 
 // Start the API server
