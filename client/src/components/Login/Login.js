@@ -12,14 +12,14 @@ function Login() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  function handleLoginSubmit(event) {
     event.preventDefault();
     console.log(email, password);
   }
 
   return (
     <div className="Login container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLoginSubmit}>
         <Form.Group controlId="email" >
           <Form.Label>Email:</Form.Label>
   
