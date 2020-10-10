@@ -1,7 +1,7 @@
 export const UPDATE_POSTS = "UPDATE_POSTS";
 export const REMOVE_POST = "REMOVE_POST";
 export const SET_CURRENT_POST = "SET_CURRENT_POST";
-export const ADD_POST = "ADD_POST";
+export const ADD_USER = "ADD_USER";
 export const LOADING = "LOADING";
 
 export const ADD_FAVORITE = "ADD_FAVORITE";
