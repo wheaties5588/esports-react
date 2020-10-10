@@ -3,6 +3,7 @@ import { Button,  Form } from "react-bootstrap";
 import NewUser from "../NewUser/NewUser";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
 import "./Login.css";
+import axios from 'axios';
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,14 +13,22 @@ function Login() {
     return email.length > 0 && password.length > 0;
   }
 
-  function handleSubmit(event) {
+  function handleLoginSubmit(event) {
     event.preventDefault();
     console.log(email, password);
-  }
+    
+    // axios.get("http://localhost:3001/").then( data => {
+    //   console.log(data);
+    // })
+    
+    };
+
+  
+
 
   return (
     <div className="Login container">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleLoginSubmit}>
         <Form.Group controlId="email" >
           <Form.Label>Email:</Form.Label>
   

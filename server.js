@@ -1,9 +1,12 @@
 const express = require("express");
 const cors = require('cors')
 const mongoose = require("mongoose");
-const routes = require("./routes/api");
+const routes = require("./routes/newUser");
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+
+app.use(cors());
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
@@ -13,14 +16,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-app.use(cors());
+
 // Add routes, both API and view
 app.use(routes);
 
+
+
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/esports"
-).then(() => {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/esports").then(() => {
   console.log('Database connected sucessfully !')
 },
   error => {

@@ -3,7 +3,7 @@ import {
   SET_CURRENT_POST,
   REMOVE_POST,
   UPDATE_POSTS,
-  ADD_POST,
+  ADD_USER,
   ADD_FAVORITE,
   UPDATE_FAVORITES,
   REMOVE_FAVORITE,
@@ -29,10 +29,10 @@ const reducer = (state, action) => {
       loading: false
     };
 
-  case ADD_POST:
+  case ADD_USER:
     return {
       ...state,
-      posts: [action.post, ...state.posts],
+      users: [action.user, ...state.users],
       loading: false
     };
 

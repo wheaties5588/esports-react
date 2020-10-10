@@ -9,9 +9,9 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   securityQuestion1: { type: String },
   securityQuestion2: { type: String },
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now() }
 });
 
-const User = mongoose.model("User", userSchema);
+const UserNew = mongoose.model("UserNew", userSchema);
 
-module.exports = User;
+module.exports = UserNew;
