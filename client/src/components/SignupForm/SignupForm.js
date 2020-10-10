@@ -1,7 +1,6 @@
 import React, { useState } from "react"
-import {Form, FormControl, FormCheck, InputGroup, Button, Col } from 'react-bootstrap'
+import {Form, InputGroup, Button, Col } from 'react-bootstrap'
 import API from "../../utils/userAPI"
-import { ADD_USER } from "../../utils/actions";
 
 
 function SignupForm() {
@@ -26,14 +25,14 @@ function SignupForm() {
       
       let newUser = {
         firstName: firstName,
-      lastName: lastName,
-      username: username,
-      email: email,
-      password: password,
-      securtyQuestion1: secQ1,
-      securtyQuestion2: secQ2,
-      date: Date.now()
-    }
+        lastName: lastName,
+        username: username,
+        email: email,
+        password: password,
+        securtyQuestion1: secQ1,
+        securtyQuestion2: secQ2,
+        date: Date.now()
+      }
     
     console.log(newUser)
       

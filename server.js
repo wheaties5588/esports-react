@@ -3,6 +3,8 @@ const cors = require('cors')
 const mongoose = require("mongoose");
 const routes = require("./routes/newUser");
 const app = express();
+var session = require("express-session");
+var passport = require("./config/passport");
 const PORT = process.env.PORT || 3001;
 
 
@@ -19,6 +21,15 @@ if (process.env.NODE_ENV === "production") {
 
 // Add routes, both API and view
 app.use(routes);
+
+
+
+// We need to use sessions to keep track of our user's login status
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 

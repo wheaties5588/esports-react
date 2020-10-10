@@ -4,6 +4,7 @@ import NewUser from "../NewUser/NewUser";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
 import "./Login.css";
 import axios from 'axios';
+import API from "../../utils/userAPI"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,10 +15,13 @@ function Login() {
   }
 
   function handleLoginSubmit(event) {
-    event.preventDefault();
-    console.log(email, password);
-    
-    // axios.get("http://localhost:3001/").then( data => {
+    event.preventDefault();   
+
+    axios.post("http://localhost:3001/api/login", (req,res) => {
+      console.log("This is the request from login: ", req)
+    })
+
+    // API.getUser().then( data => {
     //   console.log(data);
     // })
     
