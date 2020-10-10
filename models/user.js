@@ -10,8 +10,6 @@ const userSchema = new Schema({
   securityQuestion1: { type: String },
   securityQuestion2: { type: String },
   date: { type: Date, default: Date.now }
-}, {
-  collection: 'users'
 });
 
 const User = mongoose.model("User", userSchema);
