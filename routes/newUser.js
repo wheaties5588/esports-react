@@ -14,6 +14,10 @@ router
   .put(userController.update)
   .delete(userController.remove);
 
+router
+  .route("/api/login")
+  .get(userController.findUser);
+
 module.exports = router;
 
 
