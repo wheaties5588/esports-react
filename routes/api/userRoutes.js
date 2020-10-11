@@ -1,31 +1,33 @@
-const router = require("express").Router();
-const userController = require("../controllers/userController");
+// This code has not being used
+
+// const router = require("express").Router();
+// const userController = require("../../controllers/userController");
 
 
-// Matches with "/api/user"
-router.route("/api/usernews")
-  .get(userController.findAll)
-  .post(userController.create);
+// // Matches with "/api/user"
+// router.route("/")
+//   .get(userController.findAll)
+//   .post(userController.create);
 
-// Matches with "/api/user/:id"
-router
-  .route("/api/usernews/:id")
-  .get(userController.findById)
-  .put(userController.update)
-  .delete(userController.remove);
+// // Matches with "/api/user/:id"
+// router
+//   .route("/:id")
+//   .get(userController.findById)
+//   .put(userController.update)
+//   .delete(userController.remove);
 
-router
-  .route("/api/login")
-  .get(userController.findUser);
+// // router
+// //     .route("/login")
+// //     .get(userController.findUser);
 
-module.exports = router;
+// module.exports = router;
 
 
 // let mongoose = require('mongoose');
-// let express = require('express');
-// let router = express.Router();
+//   let express = require('express');
+//   let router = express.Router();
 
-// let user = require('../../models');
+// let user = require('../../controllers/userController');
 
 // router.route('/create').post((req, res, next) => {
 //   user.create(req.body, (error, data) => {

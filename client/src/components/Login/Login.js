@@ -3,13 +3,11 @@ import { Button,  Form } from "react-bootstrap";
 import NewUser from "../NewUser/NewUser";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
 import "./Login.css";
-import axios from 'axios';
 import API from "../../utils/userAPI"
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
@@ -17,14 +15,21 @@ function Login() {
   function handleLoginSubmit(event) {
     event.preventDefault();   
 
-    axios.post("http://localhost:3001/api/login", (req,res) => {
-      console.log("This is the request from login: ", req)
-    })
-
-    // API.getUser().then( data => {
-    //   console.log(data);
-    // })
-    
+    let userInfo = {
+      email: email,
+      password: password
+    }
+    API.postUser(userInfo).then(result =>{
+      console.log("I have recieved the data from the data base")
+      console.log(result.data)
+      let Email = email.toLowerCase();
+      if (Email === result.data.email.toLowerCase() && password === result.data.password) {
+        console.log("The email and password are in the database")
+      } else {
+        console.log("the email and password don't exist ")
+      }
+    }).catch(err => console.log(err))
+     
     };
 
   

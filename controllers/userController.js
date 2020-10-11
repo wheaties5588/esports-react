@@ -34,5 +34,13 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  findUser: function(req,res){
+   console.log("I am at the find user: ");
+   console.log( req.body);
+     db.UserNew.findOne(req.body)
+     .then(dbModel => res.json(dbModel))
+     .catch(err => res.status(422).json(err));
   }
+
 };
