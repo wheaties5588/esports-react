@@ -2,15 +2,23 @@ import React, { useState } from "react";
 import { Button,  Form } from "react-bootstrap";
 import NewUser from "../NewUser/NewUser";
 import ForgotPassword from "../ForgotPassword/ForgotPassword";
+import {Redirect, Route, useHistory } from "react-router-dom"
 import "./Login.css";
 import API from "../../utils/userAPI"
+
+
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  //let [confirmed, setConfirmed] = useState(false);
+  const history = useHistory();
+  let confirmed = false;
+
   function validateForm() {
     return email.length > 0 && password.length > 0;
   }
+
 
   function handleLoginSubmit(event) {
     event.preventDefault();   
@@ -25,15 +33,26 @@ function Login() {
       let Email = email.toLowerCase();
       if (Email === result.data.email.toLowerCase() && password === result.data.password) {
         console.log("The email and password are in the database")
+        confirmed = true;
+        console.log(confirmed)
+        history.push("/dashboard")
       } else {
-        console.log("the email and password don't exist ")
+        console.log("the email or password don't exist ")
       }
     }).catch(err => console.log(err))
      
     };
 
-  
 
+
+    /// we can use function like this in th logout and that's why it's not deleted so we can refrence to it
+    //  function handleClick(){
+    //    console.log(confirmed)
+    //   if(confirmed) {
+    //     console.log(confirmed)
+    //    history.push("/dashboard")
+    //   }
+    // }
 
   return (
     <div className="Login container">
@@ -58,10 +77,12 @@ function Login() {
             placeholder="Password" 
           />
         </Form.Group>
-        <Button block disabled={!validateForm()} type="submit">
-          Login
-        </Button>
+  <Button block disabled={!validateForm()} type="submit" >
+     Login 
+     </Button>
+       
         <div className="margin-top">
+        
             <span className="margin"><NewUser/></span>
             <span className=""><ForgotPassword/></span>
         

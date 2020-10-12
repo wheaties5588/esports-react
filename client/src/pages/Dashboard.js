@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Nav from '../components/Nav/Nav';
 
 
-function Dashboard() {
+class Dashboard extends Component {
     
+   render(){
     return(
         <Nav />
     )
+   } 
     
 }
 
