@@ -22,8 +22,12 @@ export default {
   },
   postUser: function(userData) {
     console.log("I am in the login api");
-    console.log(userData);
-    return axios.get("http://localhost:3001/api/login",  userData);
+    console.log(userData.email);
+    return axios.get("http://localhost:3001/api/usernews", {
+      params: {
+        email: userData.email
+      }
+    } );
     
   }
 };

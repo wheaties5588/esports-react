@@ -15,6 +15,13 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByEmail: function(req, res) {
+    console.log("User email backend:  ", req.params.email);
+    db.UserNew
+      .findByEmail(req.params.email)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     console.log(req.body);
     db.UserNew
@@ -38,7 +45,7 @@ module.exports = {
   findUser: function(req,res){
    console.log("I am at the find user: ");
    console.log( req.body);
-     db.UserNew.findOne(req.body)
+     db.UserNew.findOne({ email: req.params.email })
      .then(dbModel => res.json(dbModel))
      .catch(err => res.status(422).json(err));
   }
