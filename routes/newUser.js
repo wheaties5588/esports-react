@@ -13,9 +13,17 @@ router
   .get(userController.findById)
   .put(userController.update)
   .delete(userController.remove);
+  
+  
+  // Matches with "/api/user/:email"
+router
+.route("/api/usernews/:email")
+.get(userController.findByEmail)
+.put(userController.update)
+.delete(userController.remove);
 
 router
-  .route("/api/login")
+  .route("/api/login/:email")
   .get(userController.findUser);
 
 module.exports = router;
