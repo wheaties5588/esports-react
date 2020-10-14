@@ -15,7 +15,7 @@ router
   .delete(userController.remove);
 
 router
-  .route("/api/login")
+  .route("/api/usernews/:email")
   .get(userController.findUser);
 
 module.exports = router;

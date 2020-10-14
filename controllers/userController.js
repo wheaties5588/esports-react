@@ -38,7 +38,7 @@ module.exports = {
   findUser: function(req,res){
    console.log("I am at the find user: ");
    console.log( req.body);
-     db.UserNew.findOne(req.body)
+     db.UserNew.findOne({email: req.params.email }, req.body)
      .then(dbModel => res.json(dbModel))
      .catch(err => res.status(422).json(err));
   }

@@ -13,7 +13,7 @@ function Login() {
   const [password, setPassword] = useState("");
   //let [confirmed, setConfirmed] = useState(false);
   const history = useHistory();
-  let confirmed = false;
+  let isConfirmed = false;
 
   function validateForm() {
     return email.length > 0 && password.length > 0;
@@ -33,8 +33,8 @@ function Login() {
       let Email = email.toLowerCase();
       if (Email === result.data.email.toLowerCase() && password === result.data.password) {
         console.log("The email and password are in the database")
-        confirmed = true;
-        console.log(confirmed)
+        isConfirmed = true;
+        console.log(isConfirmed)
         history.push("/dashboard")
       } else {
         console.log("the email or password don't exist ")
@@ -81,16 +81,17 @@ function Login() {
      Login 
      </Button>
        
-        <div className="margin-top">
-        
-            <span className="margin"><NewUser/></span>
-            <span className=""><ForgotPassword/></span>
-        
-        
 
-        </div>
 
       </form>
+      <div className="center margin-top">
+        
+        <span className="margin"><NewUser/></span>
+        <span className=""><ForgotPassword/></span>
+    
+    
+
+    </div>
     
     </div>
   );
