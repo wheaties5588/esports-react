@@ -29,9 +29,9 @@ function Login() {
     }
     API.postUser(userInfo).then(result =>{
       console.log("I have recieved the data from the data base")
-      console.log(result.data)
+      console.log(result.data[0].email)
       let Email = email.toLowerCase();
-      if (Email === result.data.email.toLowerCase() && password === result.data.password) {
+      if (Email === result.data[0].email.toLowerCase() && password === result.data[0].password) {
         console.log("The email and password are in the database")
         isConfirmed = true;
         console.log(isConfirmed)
@@ -56,6 +56,8 @@ function Login() {
 
   return (
     <div className="Login container">
+      
+      
       <form onSubmit={handleLoginSubmit}>
         <Form.Group controlId="email" >
           <Form.Label>Email:</Form.Label>
@@ -81,17 +83,17 @@ function Login() {
      Login 
      </Button>
        
-
-
       </form>
-      <div className="center margin-top">
+      
+      
+      <div className="margin-top center">
         
-        <span className="margin"><NewUser/></span>
-        <span className=""><ForgotPassword/></span>
-    
-    
+            <span className="margin"><NewUser/></span>
+            <span className=""><ForgotPassword/></span>
+        
+        
 
-    </div>
+        </div>
     
     </div>
   );
