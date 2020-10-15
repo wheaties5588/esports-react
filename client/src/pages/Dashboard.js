@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Nav from '../components/Nav/Nav';
 import TwitchCard from '../components/TwitchCard/TwitchCard'
+import Carousel from '../components/Carousel'
 
 
 class Dashboard extends Component {
@@ -10,6 +11,7 @@ class Dashboard extends Component {
         <div>
             <Nav />
             <TwitchCard />
+            <Carousel />
         </div>
         
     )
