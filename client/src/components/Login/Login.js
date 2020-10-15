@@ -27,9 +27,9 @@ function Login() {
       email: email,
       password: password
     }
-    API.postUser(userInfo).then(result =>{
+    API.getUserEmail(userInfo).then(result =>{
       console.log("I have recieved the data from the data base")
-      console.log(result.data[0].email)
+      console.log(result)
       let Email = email.toLowerCase();
       if (Email === result.data[0].email.toLowerCase() && password === result.data[0].password) {
         console.log("The email and password are in the database")
