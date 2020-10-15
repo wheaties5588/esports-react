@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Nav from '../components/Nav/Nav';
-import TwitchCard from '../components/TwitchCard/TwitchCard'
+import PSDropdown from '../components/PSDropdown/PSDropdown'
 
 
 class Dashboard extends Component {
@@ -9,7 +9,7 @@ class Dashboard extends Component {
     return(
         <div>
             <Nav />
-            <TwitchCard />
+            <PSDropdown />
         </div>
         
     )
