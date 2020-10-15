@@ -21,14 +21,14 @@ export default {
     console.log(userData);
     return axios.post("http://localhost:3001/api/usernews", userData);
   },
-  postUser: function(userData) {
+  getUserEmail: function(userData) {
     console.log("I am in the login api");
     console.log(userData.email);
     return axios.get("http://localhost:3001/api/usernews", {
       params: {
         email: userData.email
       }
-    } );
+    });
     
   }
 };
