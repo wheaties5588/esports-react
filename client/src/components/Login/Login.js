@@ -27,7 +27,7 @@ function Login() {
       email: email,
       password: password
     }
-    API.postUser(userInfo).then(result =>{
+    API.getUserEmail(userInfo).then(result =>{
       console.log("I have recieved the data from the data base")
       console.log(result.data[0].email)
       let Email = email.toLowerCase();

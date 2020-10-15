@@ -22,9 +22,9 @@ router
 .put(userController.update)
 .delete(userController.remove);
 
-router
-  .route("/api/login/:email")
-  .get(userController.findUser);
+// router
+//   .route("/api/login/:email")
+//   .get(userController.findUser);
 
 module.exports = router;
 
