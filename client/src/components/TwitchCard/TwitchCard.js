@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import psAPI from '../../utils/pandaScoreApi';
+import { Dropdown } from 'react-bootstrap'
 
 
 function TwitchCard() {
@@ -34,24 +35,15 @@ function TwitchCard() {
             )}
         </div>
         
-        <div className="column">
-            <div className="dropdown">
-                <div className="dropdown-trigger">
-                    <button className="button"  aria-haspopup="true" aria-controls="dropdown-menu">
-                    <span>Select a Series</span>
-                    <span className="icon is-small">
-                        <i className="fas fa-angle-down" aria-hidden="true"></i>
-                    </span>
-                    </button>
-                </div>
-                <div className="dropdown-menu" id="dropdown-menu" role="menu">
-                    <div id="dropdownContent" class="dropdown-content">
-                        {psData.map( (el, index) => (
-                            <div className="dropdown-item" key={index}>{el.slug}</div> 
-                        )
-                        )}
-                    </div>
-                </div>
+        
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown button
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {psData.map( (el, index) => (
+                    <div className="dropdown-item" key={index}>{el.serie.full_name} - {el.name}</div> 
+                ))}
             </div>
         </div>
             
