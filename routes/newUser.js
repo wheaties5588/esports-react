@@ -22,6 +22,8 @@ router
 .put(userController.update)
 .delete(userController.remove);
 
+
+
 // router
 //   .route("/api/login/:email")
 //   .get(userController.findUser);

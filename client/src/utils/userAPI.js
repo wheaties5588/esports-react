@@ -29,6 +29,5 @@ export default {
         email: userData.email
       }
     });
-    
   }
 };
