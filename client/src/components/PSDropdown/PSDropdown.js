@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import psAPI from '../../utils/pandaScoreApi';
+import Scoreboard from '../../components/Scoreboard/Scoreboard'
 
 
 function PSDropdown() {
     
     const [psData, setPsData] = useState([]);
+    const [tourneyNum, setTourneyNum] = useState(0);
 
     useEffect(() => {
         loadPsData() 
@@ -16,6 +18,18 @@ function PSDropdown() {
             console.log(data);
             setPsData(data.data);
         });
+    }
+    
+    
+    function handleDropdownClick(ev) {
+        ev.preventDefault();
+        var target = ev.target;
+        
+        if (target.classList.contains("dropdown-item")){
+            console.log(target.getAttribute("tourneyval"))
+            setTourneyNum(target.getAttribute("tourneyval"))
+            console.log("TourneyNum:" + tourneyNum)
+       }
     }
 
     
@@ -36,13 +50,20 @@ function PSDropdown() {
                     Dropdown button
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {psData.map( (el, index) => (
-                        <div className="dropdown-item" key={index}>{el.serie.full_name} - {el.name}</div> 
-                    ))}
+                    <div onClick={handleDropdownClick}>
+                        {psData.map( (el, index) => (
+                            <div className="dropdown-item" key={index} tourneyval={index}>{el.serie.full_name} - {el.name}</div> 
+                        ))}
+                    </div>
+                    
                 </div>
             </div>
             
+            <Scoreboard tourneyNum={tourneyNum} psData={psData}/>
+            
         </div>
+        
+        
         
     )
 }
