@@ -1,3 +1,9 @@
+.heading {
+    background: #1b1b1b;
+    color:white;
+    padding: 40px !important
+}
+
 .padding {
     padding: 40px !important
 }
