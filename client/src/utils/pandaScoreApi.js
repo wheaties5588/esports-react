@@ -30,3 +30,6 @@ export default {
     
 //   }
 };
+
+
+//"https://cors-anywhere.herokuapp.com/https://api.pandascore.co/dota2/tournaments?per_page=10&token=oGQqDCAuv9cFaDUsKsD5cg3Rsmo3bV0SJnLU-DpkBoCxDAlAzXQ
