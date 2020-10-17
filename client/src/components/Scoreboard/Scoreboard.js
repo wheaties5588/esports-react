@@ -1,32 +1,34 @@
-import React, { useEffect, useState} from 'react';
-
+import React from 'react';
+import moment from 'moment';
+import './Scoreboard.css';
 
 
 
 function Scoreboard(props) {
-    const [matches, setMatches] = useState([]);
+    //const [matches, setMatches] = useState([]);
     // const [tourneyNum, setTourneyNum] = useState(0);
     
     let test = props.psData;
     
     console.log(props);
-    console.log(matches);
     
     
-    useEffect(() => {
-        loadMatches()
-    }, [])
+    // useEffect(() => {
+    //     loadMatches()
+    // }, [])
     
-    function loadMatches() {
-        setMatches(props.psData);
-    }
+    // function loadMatches() {
+    //     setMatches(props.psData);
+    // }
   
     return(
-        <div>
-            <p>TourneyNum = {props.tourneyNum}</p>
+        <div className="scoreboardDiv">
             
             {test.map( (el, index) => (
-                <div key={index}>{el.name}</div>
+                <div className="matchDiv" key={index}>
+                    <p>{el.name}</p>
+                    <p>{moment(el.begin_at).format('LLL')}</p>
+                </div>
             ))}
             
             
