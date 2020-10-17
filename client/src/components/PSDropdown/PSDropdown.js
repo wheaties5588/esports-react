@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import psAPI from '../../utils/pandaScoreApi';
 import Scoreboard from '../../components/Scoreboard/Scoreboard'
+import { set } from 'mongoose';
+
+
 
 
 function PSDropdown() {
     
     const [psData, setPsData] = useState([]);
     const [tourneyNum, setTourneyNum] = useState(0);
+    const [matches, setMatches] = useState([]);
 
     useEffect(() => {
         loadPsData() 
@@ -17,6 +21,7 @@ function PSDropdown() {
         .then( data => {
             console.log(data);
             setPsData(data.data);
+            setMatches(data.data[tourneyNum].matches);
         });
     }
     
@@ -28,22 +33,15 @@ function PSDropdown() {
         if (target.classList.contains("dropdown-item")){
             console.log(target.getAttribute("tourneyval"))
             setTourneyNum(target.getAttribute("tourneyval"))
-            console.log("TourneyNum:" + tourneyNum)
+            setMatches(psData[tourneyNum].matches);
+            console.log(matches)
        }
     }
 
     
     
     return (
-        <div>
-            
-            {/* <div id="dotaTournamentDiv">
-                {psData.map( (el, index) => (
-                    <div className="tourney-card" key={index}>{el.slug}</div> 
-                )
-                )}
-            </div> */}
-        
+        <div>  
         
             <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -59,7 +57,10 @@ function PSDropdown() {
                 </div>
             </div>
             
-            <Scoreboard tourneyNum={tourneyNum} psData={psData}/>
+            <Scoreboard
+                tourneyNum={tourneyNum}
+                psData={matches}
+            />
             
         </div>
         
