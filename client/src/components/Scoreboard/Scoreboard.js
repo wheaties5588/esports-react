@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-import React, { Component, useEffect, useState } from 'react';
-=======
 import React, { useEffect, useState} from 'react';
 
->>>>>>> 0fae0f3b4a163699546ff05e2f93ca72381486a3
 
 
 
