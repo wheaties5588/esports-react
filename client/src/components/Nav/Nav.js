@@ -1,4 +1,5 @@
 import React from "react";
+import  "./nav.css"
 
 function Nav() {
   return (
@@ -11,12 +12,17 @@ function Nav() {
                 Home <span className="sr-only">(current)</span>
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
-                logout
-              </a>
-            </li>
+
           </ul>
+          <ul className="navbar-nav" >
+            <li className="nav-item active">
+            <a className="nav-link" href="#">
+                logout
+            </a>
+            </li>
+
+          </ul>
+
         </div>
       </nav>
     </div>
