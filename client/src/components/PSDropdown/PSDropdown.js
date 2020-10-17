@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import psAPI from '../../utils/pandaScoreApi';
-import Scoreboard from '../../components/Scoreboard/Scoreboard'
-import { set } from 'mongoose';
-
-
+import Scoreboard from '../../components/Scoreboard/Scoreboard';
+import moment from 'moment';
+import './PSDropdown.css'
 
 
 function PSDropdown() {
     
-    const [psData, setPsData] = useState([]);
-    const [tourneyNum, setTourneyNum] = useState(0);
-    const [matches, setMatches] = useState([]);
+    // var str = response[index].matches[i].begin_at;
+    // var date = moment(str).date.utc().format('MM-DD-YYYY')
+    
+    const [psData, setPsData] = useState([])
+    const [tourneyNum, setTourneyNum] = useState(0)
+    const [matches, setMatches] = useState([])
+    const [tourneyName, setTourneyName] = useState("")
+    const [tourneyGroup, setTourneyGroup] = useState("")
+    const [tourneyDate, setTourneyDate] = useState("")
+    const [tourneyLogo, setTourneyLogo] = useState("")
 
     useEffect(() => {
         loadPsData() 
@@ -19,9 +25,13 @@ function PSDropdown() {
     function loadPsData() {
         psAPI.getTournament("/dota2/tournaments", 10)
         .then( data => {
-            console.log(data);
-            setPsData(data.data);
-            setMatches(data.data[tourneyNum].matches);
+            //console.log(data)
+            setPsData(data.data)
+            setMatches(data.data[tourneyNum].matches)
+            setTourneyName(data.data[tourneyNum].serie.full_name)
+            setTourneyGroup(data.data[tourneyNum].name)
+            setTourneyDate(moment(data.data[tourneyNum].serie.begin_at).format('LLL'))
+            setTourneyLogo(data.data[tourneyNum].league.image_url)
         });
     }
     
@@ -31,12 +41,20 @@ function PSDropdown() {
         var target = ev.target;
         
         if (target.classList.contains("dropdown-item")){
-            console.log(target.getAttribute("tourneyval"))
+            //console.log(target.getAttribute("tourneyval"))
             setTourneyNum(target.getAttribute("tourneyval"))
-            setMatches(psData[tourneyNum].matches);
-            console.log(matches)
+            setMatches(psData[tourneyNum].matches)
+            setTourneyName(psData[tourneyNum].serie.full_name)
+            setTourneyGroup(psData[tourneyNum].name)
+            setTourneyDate(moment(psData[tourneyNum].serie.begin_at).format('LLL'))
+            setTourneyLogo(psData[tourneyNum].league.image_url)
+            //console.log(matches)
        }
     }
+    
+    
+    
+    //console.log(psData);
 
     
     
@@ -45,21 +63,32 @@ function PSDropdown() {
         
             <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
+                    Select Tournament
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div onClick={handleDropdownClick} >
                         {psData.map( (el, index) => (
-                            <div className="dropdown-item" key={index} tourneyval={index} >{el.serie.full_name} - {el.name}</div> 
+                            <div className="dropdown-item" key={index} tourneyval={index}>{el.serie.full_name} - {el.name}</div>
                         ))}
                     </div>
                     
                 </div>
             </div>
             
+            <div className="tourneyDiv">
+                <img className="tourneyLogo" src={tourneyLogo} />
+                <div>
+                    <h2>{tourneyName} {tourneyGroup} </h2>
+                    <h3>{tourneyDate}</h3>
+                </div>
+                
+            </div>
+                        
+            
             <Scoreboard
                 tourneyNum={tourneyNum}
                 psData={matches}
+                fullData={psData}
             />
             
         </div>
