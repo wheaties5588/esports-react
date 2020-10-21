@@ -22,10 +22,15 @@ function PSDropdown() {
         loadPsData() 
     }, [])
     
+    
+    useEffect(() => {
+        console.log(tourneyNum)
+    }, [tourneyNum])
+    
+    
     function loadPsData() {
         psAPI.getTournament("/dota2/tournaments", 10)
         .then( data => {
-            //console.log(data)
             setPsData(data.data)
             setMatches(data.data[tourneyNum].matches)
             setTourneyName(data.data[tourneyNum].serie.full_name)
@@ -41,7 +46,6 @@ function PSDropdown() {
         var target = ev.target;
         
         if (target.classList.contains("dropdown-item")){
-            //console.log(target.getAttribute("tourneyval"))
             setTourneyNum(target.getAttribute("tourneyval"))
             setMatches(psData[tourneyNum].matches)
             setTourneyName(psData[tourneyNum].serie.full_name)
@@ -59,10 +63,10 @@ function PSDropdown() {
     
     
     return (
-        <div>  
+        <div className="dropdown-container">  
         
             <div className="dropdown">
-                <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button className="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Select Tournament
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
