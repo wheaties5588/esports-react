@@ -1,3 +1,7 @@
+* {
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
 body { 
     background-image: url(./images/stadiumAudiencePixabay.jpg);
     background-position: center center;
@@ -16,4 +20,5 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
+  opacity: 0.8;
 }

@@ -1,7 +1,28 @@
+.dropdown-container {
+    min-height: 100vh;
+    margin-bottom: 20px;
+}
+
 .tourneyLogo {
     width: 150px;
+    margin-right: 20px;
 }
 
 .tourneyDiv {
     display: flex;
+    display: flex;
+    background-color: #ffffffd1;
+    padding: 25px;
+}
+
+
+.dropdown{
+    position: relative;
+    text-align: center;
+    padding: 30px;
+}
+
+.dropdown-menu.show {
+    display: block;
+    width: 95%;
 }

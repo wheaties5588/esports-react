@@ -1,28 +1,40 @@
 .footer{
   background: #272829;
   color:white;
-  
-  .links{
-    ul {list-style-type: none;}
-    li a{
-      color: white;
+  position: relative;
+}
+
+.footer .links ul{
+  list-style-type: none;
+}
+
+.footer .links li a {
+  color: white;
       transition: color .2s;
-      &:hover{
-        text-decoration:none;
+}
+
+.footer .links li a:hover {
+  text-decoration:none;
         color:#4180CB;
-        }
-    }
-  }  
-  .about-company{
-    i{font-size: 25px;}
-    a{
-      color:white;
+}
+
+.footer .about-company i{
+  font-size: 25px;
+}
+
+.footer .about-company i a{
+  color:white;
       transition: color .2s;
-      &:hover{color:#4180CB}
-    }
-  } 
-  .location{
-    i{font-size: 18px;}
-  }
-  .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+}
+
+.footer .about-company i a:hover{
+  color:#4180CB
+}
+
+.footer .location i {
+  font-size: 18px;
+}
+
+.footer .copywrite p {
+  border-top:1px solid rgba(255,255,255,.1);
 }
