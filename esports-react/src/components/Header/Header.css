@@ -1,0 +1,22 @@
+.heading {
+    background: #1b1b1b;
+    color:white;
+    padding: 10px !important;
+    
+}
+
+.textDec {
+    text-decoration: unset; 
+    color: white;
+}
+
+.padding {
+    padding: 40px !important
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
