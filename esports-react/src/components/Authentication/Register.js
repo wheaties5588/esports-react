@@ -16,13 +16,15 @@ export default function Register() {
     const history = useHistory();
     const { setUserData } = useContext(UserContext);
     
+    const baseUrl = process.env.baseURL || "http://localhost:5000"
+    
     const submit = async (e) => {
         e.preventDefault();
         try {
             const newUser = { email, password, passwordCheck, displayName};
-            await Axios.post("http://localhost:5000/users/register", newUser
+            await Axios.post(baseUrl + "/users/register", newUser
         );
-        const loginRes = await Axios.post("http://localhost:5000/users/login", {
+        const loginRes = await Axios.post(baseUrl + "/users/login", {
             email,
             password,
         });

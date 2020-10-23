@@ -13,6 +13,8 @@ export default function Login() {
 
     const history = useHistory();
     const { setUserData } = useContext(UserContext);
+    
+    const baseUrl = process.env.baseURL || "http://localhost:5000"
 
     const submit = async (e) => {
         e.preventDefault();
@@ -20,7 +22,7 @@ export default function Login() {
         try {
             const loginUser = { email, password };
 
-            const loginRes = await Axios.post("http://localhost:5000/users/login", loginUser);
+            const loginRes = await Axios.post(baseUrl + "/users/login", loginUser);
             setUserData({
                 token: loginRes.data.token,
                 user: loginRes.data.user,
