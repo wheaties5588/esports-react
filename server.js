@@ -7,7 +7,7 @@ require("dotenv").config();
 
 const app = express();
 
-// Serve up static assets (usually on heroku)
+// Serve up static assets (usually on heroku) production deploy
 if (process.env.NODE_ENV === "production") {
     app.use(express.static("client/build"));
   }
