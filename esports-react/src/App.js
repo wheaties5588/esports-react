@@ -16,6 +16,8 @@ function App() {
     token: undefined,
     user: undefined,
   });
+  
+  const baseUrl = process.env.baseURL || "http://localhost:5000"
 
   useEffect(() => {
       const checkLoggedIn = async () => {
@@ -24,14 +26,14 @@ function App() {
           localStorage.setItem("auth-token", "");
           token = "";
         }
-        const tokenRes = await Axios.post("http://localhost:5000/users/tokenIsValid", 
+        const tokenRes = await Axios.post(baseUrl + "/users/tokenIsValid", 
         null,
         { headers: { "x-auth-token": token } 
       });
       console.log(tokenRes.data);
 
       if (tokenRes.data) {
-        const userRes = await Axios.get("http://localhost:5000/users/", { 
+        const userRes = await Axios.get(baseUrl + "/users/", { 
           headers: { "x-auth-token": token},
         });
         setUserData({
