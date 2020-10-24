@@ -4,7 +4,6 @@ import UserContext from "../../context/UserContext";
 import ErrorNotice from "../misc/ErrorNotice";
 import Axios from "axios";
 
-
 export default function Login() {
 
     const [email, setEmail] = useState();
@@ -41,25 +40,27 @@ export default function Login() {
     return (
         <div className="page container">
             {error && <ErrorNotice message={error} clearError={()=>setError(undefined)}/>}
-            <div className = "card margin">
-            <form onSubmit = {submit} >
+            <div className = "card margin mx-auto LoginMargin ">
+                <div className = "card-header"> Login </div>
+                <div className="card-body">
+                <form onSubmit = {submit} >
                 <div className="form-group row margin">
                     <label htmlFor="login-Email" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
-                        <input type="email" className="form-control" id="login-Email" onChange={ (e) => setEmail(e.target.value)} />
+                        <input type="email" className="form-control" id="login-Email" placeholder="Enter Email here" onChange={ (e) => setEmail(e.target.value)} />
                     </div>
                 </div>
                 <div className="form-group row margin">
                     <label htmlFor="login-Password" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-10">
-                        <input type="password" className="form-control" id="login-Password" onChange={ (e) => setPassword(e.target.value)} />
+                        <input type="password" className="form-control" id="login-Password" placeholder="Enter Email here" onChange={ (e) => setPassword(e.target.value)} />
                     </div>
                 </div>
 
-
-
-                <input type="submit" value= "login"/>
+                <input className= "btn btn-success" type="submit" value= "login"/>
             </form>
+                </div>
+
             </div>
 
 

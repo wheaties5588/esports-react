@@ -11,7 +11,25 @@
       margin: 10px;
   }
 
-
+  /* login styling */
+  .LoginMargin {
+    margin-top: 100px !important;
+    max-width: 50rem;
+    max-height: 50rem;
+    background-color:  rgba(73, 72, 72, 0.74) !important;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+/* register styling */
+.RegMargin {
+    margin-top: 100px !important;
+    margin-left: 100px!important;
+    max-width: 50rem;
+    max-height: 50rem;
+    background-color:  rgba(73, 72, 72, 0.74) !important;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
   /* error notice styling */
   .error-notice {
       margin: 1rem 0;

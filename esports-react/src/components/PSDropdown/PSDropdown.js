@@ -70,7 +70,7 @@ function PSDropdown() {
                     Select Tournament
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div onClick={handleDropdownClick}>
+                    <div onClick={handleDropdownClick} >
                         {psData.map( (el, index) => (
                             <div className="dropdown-item" key={index} tourneyval={index}>{el.serie.full_name} - {el.name}</div>
                         ))}

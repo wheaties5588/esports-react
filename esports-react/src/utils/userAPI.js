@@ -1,6 +1,7 @@
 import axios from "axios";
 //import passport from "../../../config/passport"
 
+
 export default {
   // Gets all users
   getUsers: function() {
@@ -28,6 +29,5 @@ export default {
         email: userData.email
       }
     });
-    
   }
 };
