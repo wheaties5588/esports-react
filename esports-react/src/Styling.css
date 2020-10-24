@@ -1,0 +1,35 @@
+.buttonMargin {
+    margin: 10px;
+};
+
+.page {
+    padding: 1rem;
+    margin-top: 100px;
+  }
+
+  .margin {
+      margin: 10px;
+  }
+
+
+  /* error notice styling */
+  .error-notice {
+      margin: 1rem 0;
+      padding: .5rem;
+      border: 1px solid #e07c7c;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f8d6d6;
+  }
+
+  .error-notice button {
+      
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #df4343;
+      color: #ffffff;
+      text-align: center;
+  }
