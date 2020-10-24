@@ -15,9 +15,12 @@ export default function Home() {
 
     return (
         <div>
-             <PSDropdown />
-             <TwitchDiv />
-             <Footer />
+            <div>
+                <PSDropdown />
+                <TwitchDiv />
+            </div>
+            <Footer />
         </div>
+        
     )
 }
