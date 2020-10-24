@@ -75,7 +75,7 @@ function PSDropdown() {
                             <div className="dropdown-item" key={index} tourneyval={index}>{el.serie.full_name} - {el.name}</div>
                         ))}
                     </div>
-                    
+                  
                 </div>
             </div>
             

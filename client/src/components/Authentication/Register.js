@@ -45,38 +45,41 @@ export default function Register() {
     return (
         <div className="page container">
             {error && <ErrorNotice message={error} clearError={()=>setError(undefined)}/>}
-            <div className = "card margin">
+            <div className = "card RegMargin">
+            <div className = "card-header"> Register </div>
+            <div className="card-body">
             <form onSubmit = {submit} >
                 <div className="form-group row margin">
                     <label htmlFor="Email" className="col-sm-2 col-form-label">Email</label>
                     <div className="col-sm-10">
-                        <input type="email" className="form-control" id="Email" onChange={ (e) => setEmail(e.target.value)} />
+                        <input type="email" className="form-control" placeholder="Enter Email" id="Email" onChange={ (e) => setEmail(e.target.value)} />
                     </div>
                 </div>
                 <div className="form-group row margin">
                     <label htmlFor="Password" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-10">
-                        <input type="password" className="form-control" id="Password" onChange={ (e) => setPassword(e.target.value)} />
+                        <input type="password" className="form-control" placeholder="Enter Password" id="Password" onChange={ (e) => setPassword(e.target.value)} />
                     </div>
                 </div>
                 <div className="form-group row margin">
                     <label htmlFor="verifyPassword" className="col-sm-2 col-form-label">Verify Password</label>
                     <div className="col-sm-10">
-                        <input type="password" className="form-control" id="verifyPassword" onChange={ (e) => setPasswordCheck(e.target.value)} />
+                        <input type="password" className="form-control" placeholder="Verify Password" id="verifyPassword" onChange={ (e) => setPasswordCheck(e.target.value)} />
                     </div>
                 </div>
                 <div className="form-group row margin">
-                    <label htmlFor="displayName" className="col-sm-2 col-form-label">displayName</label>
+                    <label htmlFor="displayName" className="col-sm-2 col-form-label">Username</label>
                     <div className="col-sm-10">
-                        <input type="text" className="form-control" id="displayName" onChange={ (e) => setdisplayName(e.target.value)} />
+                        <input type="text" className="form-control" placeholder="Enter Username" id="displayName" onChange={ (e) => setdisplayName(e.target.value)} />
                     </div>
                 </div>
 
-                <input type="submit" value= "Register"/>
+                <input type="submit" className="btn btn-primary" value= "Register"/>
             </form>
+            
             </div>
 
-
+            </div>
         </div>
     )
 }
