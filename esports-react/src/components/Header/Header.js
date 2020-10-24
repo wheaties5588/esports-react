@@ -8,7 +8,7 @@ export default function  Header() {
     <div className="heading" >
             <header className="container-fluid" id="header">
         
-               <Link className = "textDec" to ="/"><h1 className="text-left ">ESPORTS</h1></Link> 
+               <Link className = "textDec" to ="/"><h1 className="text-left ">select<strong>Difficulty</strong></h1></Link> 
                <AuthOptions/>
             </header>
         
