@@ -12,7 +12,7 @@
     "seed": "node scripts/seedDB.js",
     "install": "cd esports-react && npm install",
     "build": "cd esports-react && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd esports-react && npm run build"
   },
   "keywords": [],
   "author": "",
