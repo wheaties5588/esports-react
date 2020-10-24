@@ -1,6 +1,31 @@
 import React, { useEffect, useState } from "react";
+import TwitchAPI from '../../utils/TwitchApi'
 
 function TwitchDiv () {
+  
+  
+  
+  useEffect(() => {
+    loadTwitchData() 
+}, [])
+
+
+function loadTwitchData() {
+  TwitchAPI.getStream("Dota 2", 10)
+  .then( data => {
+    
+    console.log(data);
+      // setPsData(data.data)
+      // setMatches(data.data[tourneyNum].matches)
+      // setTourneyName(data.data[tourneyNum].serie.full_name)
+      // setTourneyGroup(data.data[tourneyNum].name)
+      // setTourneyDate(moment(data.data[tourneyNum].serie.begin_at).format('LLL'))
+      // setTourneyLogo(data.data[tourneyNum].league.image_url)
+  });
+}
+  
+  
+  
     return (
       // Twitch Papa Div Set Up
       <div className="album py-5 bg-light">
