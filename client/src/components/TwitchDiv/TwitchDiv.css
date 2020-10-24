@@ -1,0 +1,37 @@
+.twitchHeadline {
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+.twitchStreamItem {
+    font-size: 12px;
+    margin-bottom: 2px;
+}
+.desc {
+line-height: 1.5em;
+    height: 3em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;  /* prevents extra lines from being visible */
+}
+.streamInfo {
+    margin-bottom: 15px;
+}
+
+.twitchUser {
+    font-size: 11px;
+    line-height: 10px;
+    margin-bottom: 0px;
+    color: black;
+}
+.streamNameDiv {
+    margin-bottom: 15px;
+}
+.stream-btn {
+    border-color: #000!important;
+    color: black!important;
+    font-size: 12px;
+}
