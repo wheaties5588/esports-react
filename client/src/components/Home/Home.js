@@ -11,7 +11,7 @@ export default function Home() {
 
     useEffect(() => {
         if(!userData.user) history.push("/login");
-    }, [userData]); // if gives issues add => ,[userData]
+    }, [userData, history]); // if gives issues add => ,[userData]
 
     return (
         <div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import psAPI from '../../utils/pandaScoreApi';
-import Scoreboard from '../Scoreboard/Scoreboard'
+//import Scoreboard from '../Scoreboard/Scoreboard'
 import moment from 'moment';
 import './PSDropdown.css'
 
@@ -18,27 +18,44 @@ function PSDropdown() {
     const [tourneyDate, setTourneyDate] = useState("")
     const [tourneyLogo, setTourneyLogo] = useState("")
 
-    useEffect(() => {
-        loadPsData() 
+    // useEffect(() => {
+    //     loadPsData() 
+    // }, [])
+    
+    useEffect(function effectFunction() {
+        async function loadPsData() {
+            psAPI.getTournament("/dota2/tournaments", 10)
+            .then( data => {
+                console.log(data)
+                setPsData(data.data)
+                setMatches(data.data[tourneyNum].matches)
+                setTourneyName(data.data[tourneyNum].serie.full_name)
+                setTourneyGroup(data.data[tourneyNum].name)
+                setTourneyDate(moment(data.data[tourneyNum].serie.begin_at).format('LLL'))
+                setTourneyLogo(data.data[tourneyNum].league.image_url)
+            });
+        }
+        loadPsData()
     }, [])
     
     
     useEffect(() => {
-        console.log(psData)
-    }, [psData])
+        console.log(tourneyNum);
+        setTourneyNum(tourneyNum);
+    }, [tourneyNum])
     
     
-    function loadPsData() {
-        psAPI.getTournament("/dota2/tournaments", 10)
-        .then( data => {
-            setPsData(data.data)
-            setMatches(data.data[tourneyNum].matches)
-            setTourneyName(data.data[tourneyNum].serie.full_name)
-            setTourneyGroup(data.data[tourneyNum].name)
-            setTourneyDate(moment(data.data[tourneyNum].serie.begin_at).format('LLL'))
-            setTourneyLogo(data.data[tourneyNum].league.image_url)
-        });
-    }
+    // function loadPsData() {
+    //     psAPI.getTournament("/dota2/tournaments", 10)
+    //     .then( data => {
+    //         setPsData(data.data)
+    //         setMatches(data.data[tourneyNum].matches)
+    //         setTourneyName(data.data[tourneyNum].serie.full_name)
+    //         setTourneyGroup(data.data[tourneyNum].name)
+    //         setTourneyDate(moment(data.data[tourneyNum].serie.begin_at).format('LLL'))
+    //         setTourneyLogo(data.data[tourneyNum].league.image_url)
+    //     });
+    // }
     
     
     function handleDropdownClick(ev) {
@@ -56,6 +73,9 @@ function PSDropdown() {
        }
     }
     
+    function handleChange(ev) {
+        console.log("handle change triggered");
+    }
     
     
     //console.log(psData);
@@ -63,7 +83,7 @@ function PSDropdown() {
     
     
     return (
-        <div className="dropdown-container">  
+        <div className="dropdown-container" value={tourneyNum} onChange={handleChange} >  
         
             <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -89,11 +109,30 @@ function PSDropdown() {
             </div>
                         
             
-            <Scoreboard
+            {/* <Scoreboard
                 tourneyNum={tourneyNum}
                 psData={matches}
                 fullData={psData}
-            />
+            /> */}
+            
+            
+            <div className="scoreboardDiv">
+            
+            {matches.map( (el, index) => (
+                
+                <div className="matchDiv cardBgrColor" key={index}>
+                    <p className="matchName">{el.name}</p>
+                    <p className="matchInfo">Match Date: {moment(el.begin_at).format('LL')}</p>
+                    <p className="matchInfo">Match Time: {moment(el.begin_at).format('LT')}</p>
+                </div>
+            ))} 
+            
+            
+        </div>
+            
+            
+            
+            
             
         </div>
         
