@@ -80,7 +80,7 @@ function PSDropdown() {
             </div>
             
             <div className="tourneyDiv">
-                <img className="tourneyLogo" src={tourneyLogo} />
+                <img className="tourneyLogo" src={tourneyLogo} alt="" />
                 <div>
                     <h2>{tourneyName} {tourneyGroup} </h2>
                     <h3>{tourneyDate}</h3>
