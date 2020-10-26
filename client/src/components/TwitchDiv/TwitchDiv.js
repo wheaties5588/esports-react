@@ -2,18 +2,20 @@ import React, { useEffect, useState } from "react";
 import TwitchAPI from '../../utils/TwitchApi';
 import './TwitchDiv.css'
 
-function TwitchDiv () {
+function TwitchDiv (props) {
   const [twitchData, setTwitchData] = useState([])
+  const [twitchGame, setTwitchGame] = useState("")
   
   
   useEffect(function effectFunction() {
     async function loadTWitchData() {
       
-      TwitchAPI.getStream("Dota 2", 8)
+      TwitchAPI.getStream(props.twitchValue, 8)
       .then( data => {
         
         console.log(data.data.streams);
         setTwitchData(data.data.streams);
+        setTwitchGame(data.data.streams[0].game)
           // setPsData(data.data)
           // setMatches(data.data[tourneyNum].matches)
           // setTourneyName(data.data[tourneyNum].serie.full_name)
@@ -23,13 +25,16 @@ function TwitchDiv () {
       });
     }
     loadTWitchData();
-  }, [])
+  }, [props.twitchValue])
   
   
     return (
       // Twitch Papa Div Set Up
       <div className="album py-5 bg-light">
         <div className="container">
+          
+          <h3>{twitchGame + " Twitch Streams"}</h3>
+          
           <div className="row">  
             
           {twitchData.map( (el) => (

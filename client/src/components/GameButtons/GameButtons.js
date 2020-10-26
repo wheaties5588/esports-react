@@ -56,8 +56,8 @@ function GameButtons() {
             <button type="button" class="btn btn-dark" game="csgo" onClick={handleGameClick}>Counter Strike: GO</button>
             
             
-            <PSDropdown game={game} psURL={psURL} twitchValue={twitchValue} />
-            <TwitchDiv />
+            <PSDropdown psURL={psURL} twitchValue={twitchValue} />
+            <TwitchDiv twitchValue={twitchValue} />
         </div>
     )
 }
