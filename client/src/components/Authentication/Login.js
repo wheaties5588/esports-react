@@ -56,14 +56,15 @@ export default function Login() {
                         <input type="email" className="form-control" id="login-Email" placeholder="Enter Email" onChange={ (e) => setEmail(e.target.value)} />
                     </div>
                 </div>
-                <div className="form-group row margin">
+                <form className="form-group row margin">
                     <label htmlFor="login-Password" className="col-sm-2 col-form-label">Password</label>
                     <div className="col-sm-10">
                         <input type="password" className="form-control" id="login-Password" placeholder="Enter Password" onChange={ (e) => setPassword(e.target.value)} />
                     </div>
-                </div>
+                    <button className= "btn btn-success" type="submit">Login</button>
+                </form>
 
-                <button className= "btn btn-success" type="submit">Login</button>
+                
             </form>
                 </div>
 
