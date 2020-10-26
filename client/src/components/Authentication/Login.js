@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import UserContext from "../../context/UserContext";
 import ErrorNotice from "../misc/ErrorNotice";
@@ -12,7 +12,13 @@ export default function Login() {
 
     const history = useHistory();
     const { setUserData } = useContext(UserContext);
-    
+    const { userData } = useContext(UserContext);
+
+    useEffect(() => {
+        console.log(userData.user)
+        if(userData.user) history.push("/");
+    }, [userData, history]); // if gives issues add => ,[userData]
+     
     const baseUrl = process.env.baseURL || "http://localhost:5000"
 
     const submit = async (e) => {
