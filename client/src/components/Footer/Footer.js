@@ -19,17 +19,17 @@ function Footer() {
           <ul className="m-0 p-0">
 ​
             <li>
-              <a href="https://github.com/wheaties5588" target="_blank"><strong>MW</strong> - Matt Wieciech</a>
+              <a href="https://github.com/wheaties5588" target="_blank" rel="noopener noreferrer"><strong>MW</strong> - Matt Wieciech</a>
             </li>
 ​
             
             <li>
-              <a href="https://github.com/Kaylan83" target="_blank"><strong>MA</strong> - Murad Alkaylanie</a>
+              <a href="https://github.com/Kaylan83" target="_blank" rel="noopener noreferrer"><strong>MA</strong> - Murad Alkaylanie</a>
             </li>
             
             
             <li>
-              <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank"><strong>JC</strong> - Jason Cruz</a>
+              <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer"><strong>JC</strong> - Jason Cruz</a>
             </li>
           </ul>
       </div>

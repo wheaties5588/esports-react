@@ -32,7 +32,7 @@ function TwitchDiv () {
         <div className="container">
           <div className="row">  
             
-          {twitchData.map( (el, index) => (
+          {twitchData.map( (el) => (
                                                    
                             <div className="col-md-3" key={"twitch" + el._id} >
                               <div className="card mb-4 box-shadow">
