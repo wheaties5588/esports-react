@@ -63,7 +63,7 @@ export default function Login() {
                     </div>
                 </div>
 
-                <input className= "btn btn-success" type="submit" value= "login"/>
+                <button className= "btn btn-success" type="submit">Login</button>
             </form>
                 </div>
 
