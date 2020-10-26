@@ -1,15 +1,13 @@
 import React, { useEffect, useLayoutEffect, useState } from 'react';
 import psAPI from '../../utils/pandaScoreApi';
-//import Scoreboard from '../Scoreboard/Scoreboard'
+import Scoreboard from '../Scoreboard/Scoreboard'
 import moment from 'moment';
 import './PSDropdown.css'
 
 
-function PSDropdown() {
+function PSDropdown(props) {
     
-    // var str = response[index].matches[i].begin_at;
-    // var date = moment(str).date.utc().format('MM-DD-YYYY')
-    
+    const psURL = props.psURL
     const [psData, setPsData] = useState([])
     const [tourneyNum, setTourneyNum] = useState(0)
     const [matches, setMatches] = useState([])
@@ -17,10 +15,12 @@ function PSDropdown() {
     const [tourneyGroup, setTourneyGroup] = useState("")
     const [tourneyDate, setTourneyDate] = useState("")
     const [tourneyLogo, setTourneyLogo] = useState("")
+
     
     useEffect(function effectFunction() {
+        console.log(psURL)
         async function loadPsData() {
-            psAPI.getTournament("/dota2/tournaments", 10)
+            psAPI.getTournament(psURL, 10)
             .then( data => {
                 console.log(data)
                 setPsData(data.data)
@@ -32,13 +32,14 @@ function PSDropdown() {
             });
         }
         loadPsData()
-    }, [])
+        
+    }, [psURL])
     
     
     useLayoutEffect(() => {
         
         async function loadMatches() {
-            if (psData[tourneyNum] == undefined) {
+            if (psData[tourneyNum] === undefined) {
                 console.log("useLayout running undefined");
             } else {
                 console.log("useLayout running");
@@ -63,16 +64,14 @@ function PSDropdown() {
         if (target.classList.contains("dropdown-item")){
             setTourneyNum(target.getAttribute("tourneyval"))
        }
-    }
-    
-     
+    }  
     
     return (
         <div className="dropdown-container">  
         
             <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle btn-block" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Select Tournament
+                    Select {props.twitchValue} Tournament
                 </button>
                 <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div onMouseUp={handleDropdownClick}>
@@ -93,21 +92,10 @@ function PSDropdown() {
                 </div>
                 
             </div>
+            
+            
+            <Scoreboard tourneyNum={tourneyNum} matches={matches} />
                         
-            
-            <div className="scoreboardDiv">
-            {console.log(matches)}
-            {matches.map( (el, index) => (
-                
-                <div className="matchDiv cardBgrColor" key={index}>
-                    <p className="matchName">{el.name}</p>
-                    <p className="matchInfo">Match Date: {moment(el.begin_at).format('LL')}</p>
-                    <p className="matchInfo">Match Time: {moment(el.begin_at).format('LT')}</p>
-                </div>
-            ))} 
-            
-            
-        </div>
           
         </div>  
         
