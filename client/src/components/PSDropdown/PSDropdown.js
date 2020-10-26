@@ -18,8 +18,8 @@ function PSDropdown(props) {
 
     
     useEffect(function effectFunction() {
-        console.log(psURL)
-        async function loadPsData() {
+        const abortController = new AbortController()
+        function loadPsData() {
             psAPI.getTournament(psURL, 10)
             .then( data => {
                 console.log(data)
@@ -33,12 +33,17 @@ function PSDropdown(props) {
         }
         loadPsData()
         
+        return function abort() {
+            abortController.abort()
+        }
+        
     }, [psURL])
     
     
     useLayoutEffect(() => {
+        const abortController = new AbortController()
         
-        async function loadMatches() {
+        function loadMatches() {
             if (psData[tourneyNum] === undefined) {
                 console.log("useLayout running undefined");
             } else {
@@ -53,6 +58,10 @@ function PSDropdown(props) {
             
         }
         loadMatches()
+        
+        return function abort() {
+            abortController.abort()
+        }
     }, [tourneyNum])
     
     

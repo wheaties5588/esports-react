@@ -41,6 +41,9 @@ function GameButtons() {
                 setPsURL("/csgo/tournaments");
                 setTwitchValue("Counter-Strike: Global Offensive");
                 break;
+            default:
+                setPsURL("/dota2/tournaments");
+                setTwitchValue("Dota 2");
         }
     }
     
@@ -53,7 +56,7 @@ function GameButtons() {
             <button type="button" className="btn btn-danger" game="dota2" onClick={handleGameClick}>Dota 2</button>
             <button type="button" className="btn btn-warning" game="overwatch" onClick={handleGameClick}>Overwatch</button>
             <button type="button" className="btn btn-info" game="lol" onClick={handleGameClick}>League of Legends</button>
-            <button type="button" class="btn btn-dark" game="csgo" onClick={handleGameClick}>Counter Strike: GO</button>
+            <button type="button" className="btn btn-dark" game="csgo" onClick={handleGameClick}>Counter Strike: GO</button>
             
             
             <PSDropdown psURL={psURL} twitchValue={twitchValue} />
@@ -64,37 +67,3 @@ function GameButtons() {
 
 
 export default GameButtons
-
-
-
-
-// // Parse out by URL to run functions
-// var loc = window.location.href;
-// var locArr = loc.split("/");
-
-// if (locArr[locArr.length - 1] == "overwatch.html"){
-    
-//     console.log("RU4 overwatch!!!");
-//     getTournaments("/ow/tournaments", 10, $("#owTournamentDiv"));
-//     getTwitchStreams("Overwatch", 8, $("#overwatchTwitchDiv"));
-    
-    
-// } else if (locArr[locArr.length - 1] == "dota2.html") {
-    
-//     console.log("RU4 DOTAAAAA!!!");
-//     getTournaments("/dota2/tournaments", 10, $("#dotaTournamentDiv"));
-//     getTwitchStreams("Dota 2", 8, $("#dotaTwitchDiv"));
-
-    
-// } else if (locArr[locArr.length - 1] == "leagueoflegends.html") {
-    
-//     console.log("RU4 LOLLLLLL!!!");
-//     getTournaments("/lol/tournaments", 10, $("#lolTournamentDiv"));
-//     getTwitchStreams("League of Legends", 8, $("#lolTwitchDiv"));
-    
-    
-// } else if ((locArr[locArr.length - 1] == "CSGO.html") || (locArr[locArr.length - 1] == "csgo.html")){
-//     console.log("RU4 CSGO");
-//     getTournaments("/csgo/tournaments", 10, $("#csgoTournamentDiv"));
-//     getTwitchStreams("Counter-Strike: Global Offensive", 8, $("#csgoTwitchDiv"));
-// } else {}

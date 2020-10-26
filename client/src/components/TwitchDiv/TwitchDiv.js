@@ -8,7 +8,8 @@ function TwitchDiv (props) {
   
   
   useEffect(function effectFunction() {
-    async function loadTWitchData() {
+    const abortController = new AbortController()
+    function loadTWitchData() {
       
       TwitchAPI.getStream(props.twitchValue, 8)
       .then( data => {
@@ -16,15 +17,14 @@ function TwitchDiv (props) {
         console.log(data.data.streams);
         setTwitchData(data.data.streams);
         setTwitchGame(data.data.streams[0].game)
-          // setPsData(data.data)
-          // setMatches(data.data[tourneyNum].matches)
-          // setTourneyName(data.data[tourneyNum].serie.full_name)
-          // setTourneyGroup(data.data[tourneyNum].name)
-          // setTourneyDate(moment(data.data[tourneyNum].serie.begin_at).format('LLL'))
-          // setTourneyLogo(data.data[tourneyNum].league.image_url)
       });
     }
     loadTWitchData();
+    
+    return function abort() {
+        abortController.abort()
+    }
+    
   }, [props.twitchValue])
   
   
