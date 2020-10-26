@@ -16,9 +16,6 @@ function Scoreboard(props) {
         console.log(tourneyNum)
     }, [tourneyNum])
     
-    // function loadMatches() {
-    //     setMatches(props.psData);
-    // }
   
     return(
 
