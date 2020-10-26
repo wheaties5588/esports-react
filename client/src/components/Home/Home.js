@@ -1,8 +1,8 @@
 import React, {useEffect, useContext} from 'react';
 import {useHistory} from "react-router-dom";
 import UserContext from "../../context/UserContext";
-import PSDropdown from "../PSDropdown/PSDropdown";
-import TwitchDiv from "../TwitchDiv/TwitchDiv";
+import GameButtons from "../GameButtons/GameButtons"
+
 import Footer from "../Footer/Footer"
 
 export default function Home() {
@@ -16,8 +16,7 @@ export default function Home() {
     return (
         <div>
             <div>
-                <PSDropdown />
-                <TwitchDiv />
+                <GameButtons />
             </div>
             <Footer />
         </div>

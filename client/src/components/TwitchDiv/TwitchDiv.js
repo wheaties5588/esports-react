@@ -9,7 +9,7 @@ function TwitchDiv () {
   useEffect(function effectFunction() {
     async function loadTWitchData() {
       
-      TwitchAPI.getStream("Dota 2", 10)
+      TwitchAPI.getStream("Dota 2", 8)
       .then( data => {
         
         console.log(data.data.streams);
@@ -40,7 +40,7 @@ function TwitchDiv () {
                                 <img
                                   className="card-img-top"
                                   src={el.preview.medium}
-                                  alt="Card image cap"
+                                  alt={el.channel.display_name + " live stream image."}
                                 />
                                 <div className="card-body">
                                 {/* Channel info */}
@@ -58,7 +58,7 @@ function TwitchDiv () {
                                   <div className="d-flex justify-content-between align-items-center">
                                     {/* Link to channel in A tag in Button? */}
                                     <div className="btn-group">
-                                      <a href={el.channel.url} target="_blank">
+                                      <a href={el.channel.url} target="_blank" rel="noopener noreferrer">
                                         <button
                                           type="button"
                                           className="btn btn-sm btn-outline-secondary stream-btn"
