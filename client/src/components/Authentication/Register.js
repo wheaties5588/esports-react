@@ -16,7 +16,13 @@ export default function Register() {
     const history = useHistory();
     const { setUserData } = useContext(UserContext);
     
-    const baseUrl = process.env.baseURL || "http://localhost:5000"
+    let baseUrl;
+    
+    if (process.env.NODE_ENV === "production") {
+        baseUrl = "https://cryptic-falls-26682.herokuapp.com"
+      } else {
+        baseUrl = "http://localhost:5000"
+      }
     
     const submit = async (e) => {
         e.preventDefault();
