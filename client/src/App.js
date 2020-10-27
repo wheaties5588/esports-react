@@ -11,6 +11,13 @@ import Axios from "axios";
 import './Styling.css'
 
 function App() {
+  
+  console.log("baseUrl #################")
+  console.log(process.env.baseUrl)
+  console.log("baseURL #################")
+  console.log(process.env.baseURL)
+  console.log("BASE_URL #################")
+  console.log(process.env.BASE_URL)
 
   const [userData, setUserData] = useState({
     token: undefined,
